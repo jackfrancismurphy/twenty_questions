@@ -1,11 +1,450 @@
-#Hi Jack, happy birthday. Send this task to 3 more people. Please add the new people to the name_list and object_answer things 
+
+import json
+
+#Tidy code 
+
+#to add
+# Add a hint function!
 
 
-#variables and variable creation
 
-successful_answer = 'nay'
-#answer = 'Harry Potter' 
-name_list = ['Harry Potter','Elon Musk', 'Jesus']
+Harry_Potter = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"Yes",
+    "superhero":"No",
+    "magic":"Yes",
+    "adult":"No",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"Yes",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No"
+    }
+Elon_Musk = {
+   "fictional":"No",
+    "alive":"Yes",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"Yes",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No",
+}
+Cleopatra = {
+    "fictional":"No",
+    "alive":"No",
+    "male":"No",
+    "female":"Yes",
+    "historic":"Yes",
+    "ruler":"Yes",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"No",
+    "POC":"Yes",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"Yes",
+    "video":"No",
+}
+Jesus = {
+    "fictional":"No",
+    "alive":"No",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"Yes",
+    "film":"No",
+    "TV":"No",
+    "book":"Yes",
+    "folk tale":"No",
+    "wealthy":"Yes",
+    "humanitarian":"Yes",
+    "older":"No",
+    "video":"No",
+}
+Queen_Elizabeth_II ={
+    "fictional":"No",
+    "alive":"Yes",
+    "male":"No",
+    "female":"Yes",
+    "historic":"No",
+    "ruler":"Yes",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"Yes",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"Yes",
+    "humanitarian":"No",
+    "older":"Yes",
+    "video":"No"
+}
+Bob_Marley = {
+    "fictional":"No",
+    "alive":"No",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"Yes",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"No",
+    "POC":"Yes",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"Yes",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No"
+}
+Marge_Simpson = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"No",
+    "female":"Yes",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"Yes",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"Yes",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No"
+}
+Kim_Kardashian = {
+    "fictional":"No",
+    "alive":"Yes",
+    "male":"No",
+    "female":"Yes",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"Yes",
+    "singer":"No",
+    "actor":"No",
+    "American":"Yes",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"Yes",
+    "older":"No",
+    "video":"No"
+}
+Florence_Nightingale = {
+    "fictional":"No",
+    "alive":"No",
+    "male":"No",
+    "female":"Yes",
+    "historic":"Yes",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"Yes",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"Yes",
+    "older":"Yes",
+    "video":"No",
+}
+Superman = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"Yes",
+    "English":"No",
+    "superhero":"Yes",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"Yes",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No",
+}
+Spider_man = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"Yes",
+    "English":"No",
+    "superhero":"Yes",
+    "magic":"No",
+    "adult":"No",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"Yes",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No"
+}
+Mario = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"Yes"
+}
+Santa = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"Yes",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"Yes",
+    "older":"Yes",
+    "video":"No"
+    }
+
+Cinderella = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"No",
+    "female":"Yes",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"Yes",
+    "child":"No",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"Yes",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No"
+    }
+
+Peter_Pan = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"Yes",
+    "female":"No",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"No",
+    "superhero":"No",
+    "magic":"Yes",
+    "adult":"No",
+    "child":"Yes",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"No",
+    "folk tale":"Yes",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No"
+    }
+
+Alice = {
+    "fictional":"Yes",
+    "alive":"N/A",
+    "male":"No",
+    "female":"Yes",
+    "historic":"No",
+    "ruler":"No",
+    "entertainer":"No",
+    "singer":"No",
+    "actor":"No",
+    "American":"No",
+    "English":"Yes",
+    "superhero":"No",
+    "magic":"No",
+    "adult":"No",
+    "child":"Yes",
+    "white":"Yes",
+    "POC":"No",
+    "film":"No",
+    "TV":"No",
+    "book":"Yes",
+    "folk tale":"No",
+    "wealthy":"No",
+    "humanitarian":"No",
+    "older":"No",
+    "video":"No"
+    }
+
+name_list = ['Harry Potter','Elon Musk', 'Jesus', 'Cleopatra', 'Queen Elizabeth II', 'Bob Marley', 'Marge Simpson', 'Kim Kardashian', 'Florence Nightingale', "Superman", "Spider man", "Mario", "Santa", "Cinderella", "Alice", "Peter Pan"]
 
 
 def name_randomiser(lis):
@@ -18,93 +457,60 @@ answer = name_randomiser(name_list)
 
 
 
+#Creating the answer_dict variable
 
-
-#to add
-#['Beyonce', 'Will Smith', 'Bill Gates', 'Bob Marley', 'Queen Elizabeth II', 'Cleopatra', 'Kim Kardashian', 'Florence Nightingale', 'Harry Potter', 'Superman', 'Spider-Man', 'Mario', 'Santa', 'Hermione', 'Cinderella', 'Peter Pan', 'Alice', 'Marge Simpson']
-
-# to make name catcher names will have to be list of list of names e.g
-# name_list = [['Elon Musk'], ['Jesus', 'Jesus Christ']]
-# in check_answer() will have to change code at line 2 to 'if player_answer in answer'
-# That won't work with check answer!!!
-
-#work out how to change check_answer() based on what the answer is 
-
-
-
-class Person:
-    def __init__(self, name, fictional, alive, male, female, historic, ruler, entertainer, singer, actor, American, English, superhero, magic, adult, child, white, POC, film, TV, book, folk_tale, wealthy, humanitarian, older, video):
-        
-        
-        self.name = name
-        self.fictional = fictional
-        self.alive = alive
-        self.male = male
-        self.female = female
-        self.historic = historic
-        self.ruler = ruler
-        self.entertainer = entertainer
-        self.singer = singer
-        self.actor = actor
-        self.American = American
-        self.English = English
-        self.superhero = superhero
-        self.magic = magic
-        self.adult = adult
-        self.child = child
-        self.white = white
-        self.POC = POC
-        self.film = film
-        self.TV = TV
-        self.book = book
-        self.folk_tale = folk_tale
-        self.wealthy = wealthy
-        self.humanitarian = humanitarian
-        self.older = older
-        self.video = video
-
-
-
-#Instantiating the people
-#Remember to add names to list below and to name_list above
-Harry_Potter = Person('Harry Potter', 'Yes', 'N/A', 'Yes', 'No', 'No', 'No','No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No') 
-Elon_Musk = Person('Elon Musk', 'No', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No')
-Jesus = Person('Jesus', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'N/A', 'No' )
-Cleopatra = Person('Cleopatra', 'No', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No')
-Queen_Elizabeth_II = Person('Queen Elizabeth II', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No')
-Bob_Marley = Person('Bob Marley', 'No', 'No', 'Yes', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No' 'No')
-
-
-Marge_Simpson = Person('Marge Simpson', 'Yes', 'N/A' 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No','No','No')
-
-
-
-#Creating the answer_object variable
 if answer == 'Harry Potter':
-    answer_object = Harry_Potter
+    answer_dict = Harry_Potter
 
 if answer == 'Elon Musk':
-    answer_object = Elon_Musk
+    answer_dict = Elon_Musk
     
 if answer == 'Jesus':
-    answer_object = Jesus
+    answer_dict = Jesus
 
 if answer == 'Cleopatra':
-	answer_object = Cleopatra
+	answer_dict = Cleopatra
 
 if answer == 'Queen Elizabeth II':
-	answer_object = Queen_Elizabeth_II
+	answer_dict = Queen_Elizabeth_II
 
 if answer == 'Bob Marley':
-	answer_object = Bob_Marley
+	answer_dict = Bob_Marley
 
 if answer == 'Marge Simpson':
-	answer_object = Marge_Simpson
+	answer_dict = Marge_Simpson
     
+if answer == 'Kim Kardashian':
+    answer_dict = Kim_Kardashian
 
-    
-#I would like to replace this code some day.
+if answer == 'Florence Nightingale':
+    answer_dict = Florence_Nightingale
 
+if answer == "Superman":
+    answer_dict = Superman
+
+if answer == "Spider man": 
+    answer_dict = Spider_man
+
+if answer == "Mario":
+    answer_dict = Mario
+
+if answer == "Santa":
+    answer_dict = Santa 
+
+if answer == "Cinderella":
+    answer_dict = Cinderella
+
+if answer == "Peter Pan":
+    answer_dict = Peter_Pan
+
+if answer == "Alice":
+    answer_dict = Alice
+
+
+
+
+#functions for game logic
 
 def asking_phase():
 	player_answer = input(f'Question {question_count} \n').replace('?','')
@@ -117,23 +523,15 @@ def check_answer():
         return True
     
     for e in player_answer.split():
-        if e in answer_object.__dir__():
-            print(getattr(answer_object,f"{e}"))
-            return False  
+        if e in answer_dict.keys():
+           print(answer_dict[f"{e}"])
+           return False  
     
     for e in player_answer.split():
-        if e not in answer_object.__dir__():
-            print("Guess again! \n Neither yes nor no? Check the properties!")
+        if e not in answer_dict.keys():
+            print("Guess again! (and state your guess, i.e: \"Jack Murphy\".) \nNeither yes nor no? Check the properties!")
             return False    
 
-
-    #cannot check the other condition unless the for loop completes entirely before going to the below.
-    #print("please pick a property from above")
-    #return False
-    #wrong condition
-            
-#why isn't the variable 'guessed' being reassigned here?              
-#how would we deal with Or questions?
 
 
 
@@ -170,3 +568,5 @@ while guessed == False and question_count <21:
 
 if question_count >20:
     print('You\'ve run out of questions. Try again')
+
+
